@@ -1,8 +1,8 @@
 #include <iostream>
 
-void printf() {}
+void printf() { std::cout << "!!!!" << std::endl; }
 
-void modify() {}
+void modify() { std::cout << "!!!!" << std::endl; }
 
 int main() {
   std::cout << "hello world" << std::endl;

@@ -18,5 +18,18 @@ $ git commit --amend
 
 git reset chapter_2/main.cpp
 
-git restore --staged chapter_2/main.cpp
+git restore --staged chapter_2/main.cpp 
+
+git reset可能是一个危险的命令，特别是如果您提供了--hard标志。 但是，在上面描述的场景中，工作目录中的文件不会被触碰，因此相对安全。
+
+
+## 撤消已修改的文件
+
+git checkout chapter_2/main.cpp
+
+git checkout -- <file>是一个危险的命令。 您对该文件所做的任何本地更改都将消失——Git 只是用上次暂存或提交的版本替换了该文件。 除非您绝对知道不需要这些未保存的本地更改，否则请勿使用此命令
+
+## 使用 git restore 撤消操作
+
+
 
