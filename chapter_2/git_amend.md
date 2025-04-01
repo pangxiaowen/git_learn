@@ -31,5 +31,14 @@ git checkout -- <file>是一个危险的命令。 您对该文件所做的任何
 
 ## 使用 git restore 撤消操作
 
+git restore。 它基本上是刚刚介绍的git reset的替代方案。
+
+### 使用 git restore 取消暂存已暂存的文件
+
+git restore --staged chapter_2/main.cpp 
+
+### 使用 git restore 撤消已修改的文件
+
+git restore chapter_2/main.cpp 
 
 
