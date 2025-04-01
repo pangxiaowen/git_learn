@@ -13,3 +13,10 @@ $ git commit -m 'Initial commit'
 $ git add forgotten_file
 $ git commit --amend
 ```
+
+## 取消暂存已暂存的文件
+
+git reset chapter_2/main.cpp
+
+git restore --staged chapter_2/main.cpp
+
