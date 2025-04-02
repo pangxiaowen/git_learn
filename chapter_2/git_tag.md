@@ -55,3 +55,4 @@ git push origin --delete <tagname>
 
 ### 签出标签
 
+git checkout v2.0.0
