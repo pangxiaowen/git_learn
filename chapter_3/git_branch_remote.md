@@ -34,4 +34,12 @@ git checkout -b serverfix origin/serverfix
 
 这会为你提供一个你可以处理的本地分支，该分支从 origin/serverfix 的位置开始。
 
+## 跟踪分支
+
+从远程跟踪分支检出本地分支会自动创建一个所谓的“跟踪分支”（它跟踪的分支称为“上游分支”）。跟踪分支是与远程分支具有直接关系的本地分支。如果你位于跟踪分支上并键入 git pull，Git 会自动知道要从哪个服务器获取数据以及要合并哪个分支。
+
+当你克隆存储库时，它通常会自动创建一个跟踪 origin/master 的 master 分支。但是，如果你愿意，可以设置其他跟踪分支——那些跟踪其他远程服务器上的分支或不跟踪 master 分支的分支。
+
+git checkout --track origin/serverfix
+
 
