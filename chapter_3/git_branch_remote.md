@@ -42,4 +42,28 @@ git checkout -b serverfix origin/serverfix
 
 git checkout --track origin/serverfix
 
+事实上，这个操作如此常见，以至于还有一个快捷方式。如果要检出的分支名称 (a) 不存在，并且 (b) 与唯一一个远程服务器上的名称完全匹配，Git 将为你创建一个跟踪分支。
 
+要设置与远程分支名称不同的本地分支，可以轻松地使用第一个版本并使用不同的本地分支名称。
+
+git checkout -b sf origin/serverfix
+
+现在，你的本地分支 sf 将自动从 origin/serverfix 获取数据。
+
+如果你已经有一个本地分支，并且想要将其设置为刚刚拉取的远程分支，或者想要更改正在跟踪的上游分支，可以在任何时候使用 git branch 的 -u 或 --set-upstream-to 选项显式设置它。
+
+git branch -u origin/serverfix
+
+如果你想查看设置了哪些跟踪分支，可以使用 git branch 的 -vv 选项。这将列出你的本地分支，并提供更多信息，包括每个分支正在跟踪什么以及你的本地分支是领先、落后还是两者兼而有之。
+
+## 拉取
+
+虽然 git fetch 命令会获取服务器上你还没有的所有更改，但它不会修改你的工作目录。它只会获取数据并让你自己合并。但是，有一个名为 git pull 的命令，在大多数情况下，它本质上是 git fetch 后紧跟 git merge。如果你设置了跟踪分支（如上一节中所示），无论是通过显式设置还是通过 clone 或 checkout 命令为你创建，git pull 将查找你的当前分支正在跟踪哪个服务器和分支，从该服务器获取数据，然后尝试合并该远程分支。
+
+通常，最好简单地显式使用 fetch 和 merge 命令，因为 git pull 的“魔力”通常会令人困惑。
+
+## 删除远程分支
+
+假设你已完成远程分支——例如，你和你的协作者已完成某个功能，并将其合并到远程服务器的 master 分支（或你的稳定代码行所在的任何分支）中。你可以使用 git push 的 --delete 选项删除远程分支。如果你想从服务器删除 serverfix 分支，可以运行以下命令：
+
+$ git push origin --delete serverfix
